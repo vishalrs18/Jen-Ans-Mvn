@@ -38,5 +38,17 @@
 			</plugin>
 		</plugins>
 	</build>
+        <distributionManagement>
+    		<repository>
+        		<id>central</id>
+       			<name>a0stoyxg7jntu-artifactory-primary-0-releases</name>
+        		<url>https://vishal18.jfrog.io/artifactory/demo1</url>
+    		</repository>
+    	<snapshotRepository>
+        		<id>snapshots</id>
+        		<name>a0stoyxg7jntu-artifactory-primary-0-snapshots</name>
+        		<url>https://vishal18.jfrog.io/artifactory/demo1</url>
+    	</snapshotRepository>
+   	</distributionManagement>
 
 </project>
