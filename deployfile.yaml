@@ -1,0 +1,12 @@
+---
+- name: deployment servers
+  hosts: uat
+  remote_user: ubuntu
+  become:true
+
+  tasks:
+  - name: deployment of sprign boot in UAT Server, stop ,restart service
+    copy: src=../target/spring-boot-hello-world.service dest=deployable/
+  
+  - name: deployment of sprign boot in UAT Server, stop ,restart service
+    command: sudo systemctl start spring-boot-hello-world.service
