@@ -3,8 +3,7 @@
   hosts: uat
   remote_user: ubuntu
   become:true
-
- tasks :
+  tasks :
   - name: copy application jar
     copy: src=../target/spring-boot-hello-world.service dest=deployable/
   
