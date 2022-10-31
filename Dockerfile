@@ -1,9 +1,11 @@
-FROM nginx
+FROM tomcat:8.5.35-jre10
 
 LABEL maintainer=vishal
 
 USER root
 
-COPY ./target/spring-boot-hello-world-0.0.1-SNAPSHOT.jar /usr/share/nginx/spring-boot-hello-world-0.0.1-SNAPSHOT.jar
+COPY ./target/spring-boot-hello-world-0.0.1-SNAPSHOT.jar /usr/local/tomcat/webapps/
 
-ENTRYPOINT ["java", "-jar", "/usr/share/nginx/spring-boot-hello-world-0.0.1-SNAPSHOT.jar"]
+RUN chmod +x /usr/local/tomcat/bin/catalina.sh
+
+ENTRYPOINT ["/usr/local/tomcat/bin/catalina.sh", "run"]
