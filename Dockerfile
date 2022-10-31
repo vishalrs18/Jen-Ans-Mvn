@@ -1,19 +1,9 @@
-FROM quay.io/eclipse/che-java8-maven:7.36.2
+FROM nginx
 
-MAINTAINER tech-tejendra
+LABEL maintainer=vishal
 
 USER root
 
-COPY src /home/app/src
-COPY pom.xml /home/app
+COPY /var/jenkins/workspace/demo1/target/spring-boot-hello-world-0.0.1-SNAPSHOT.jar /usr/share/nginx/spring-boot-hello-world-0.0.1-SNAPSHOT.jar
 
-#ERROR
-#RUN nocmd
-
-RUN mkdir -p /var/local/SP
-
-RUN mvn -f /home/app/pom.xml clean package
-
-EXPOSE 8080
-
-ENTRYPOINT ["java", "-jar", "/home/app/target/spring-boot-hello-world-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "/usr/share/nginx/spring-boot-hello-world-0.0.1-SNAPSHOT.jar"]
