@@ -6,7 +6,7 @@
 
   tasks:
   - name: stop
-    command: sudo systemctl start spring.service
+    command: sudo systemctl stop spring.service
 
   - name: copy application jar
     copy: src=/var/jenkins/workspace/CI/target/spring-boot-hello-world-0.0.1-SNAPSHOT.jar dest=deployable/
