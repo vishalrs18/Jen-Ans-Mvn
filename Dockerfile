@@ -4,7 +4,7 @@ LABEL maintainer=vishal
 
 USER root
 
-COPY ./target/spring-boot-hello-world-0.0.1-SNAPSHOT.jar /usr/local/tomcat/webapps/
+COPY /home/ubuntu/deployable/spring-boot-hello-world-0.0.1-SNAPSHOT.jar /usr/local/tomcat/webapps/
 
 RUN chmod +x /usr/local/tomcat/bin/catalina.sh
 
