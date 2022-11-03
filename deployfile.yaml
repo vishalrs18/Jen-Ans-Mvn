@@ -13,8 +13,8 @@
     name: application
     image: app
     state: start
- 
+    
  - name:
- docker_container:
+  docker_container:
     name: application
     state: stopped
