@@ -7,14 +7,4 @@
   tasks:
   - name: pull the images from docker
     command: docker pull vishal18doc/sample:app
-    
-  - name:
-  docker_container:
-    name: application
-    image: app
-    state: start
-    
- - name:
-  docker_container:
-    name: application
-    state: stopped
+
