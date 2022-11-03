@@ -6,5 +6,6 @@
 
   tasks:
   - name: pull the images from docker
-    command: docker pull vishal18doc/sample:new
+    command: docker run -d --name vishal vishal18doc/sample:new
+
 
