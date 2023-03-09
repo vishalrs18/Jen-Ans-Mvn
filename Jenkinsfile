@@ -5,12 +5,12 @@ node ('maven') {
     stage('Build') {
        sh 'mvn clean install'
         }
-    stage ('docker')
-        withDockerRegistry(credentialsId: 'docker', url: 'https://hub.docker.com/repository/docker/vishal18doc/sample')
+    stage ('docker') {
+       withCredentials([usernamePassword(credentialsId: 'doc-jen2', passwordVariable: 'psd', usernameVariable: 'user')]) 
     {
         sh 'docker build -t app:1 .'
         sh "docker tag app:1 vishal18doc/sample"
-        sh "docker login -u vishal18doc -p $docker"
+        sh "echo $psd | docker login -u $user --password-stdin"
         sh "docker push vishal18doc/sample"
     }
     stage('ansible') {
